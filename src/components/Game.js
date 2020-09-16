@@ -16,7 +16,7 @@ export default class Game extends React.Component {
     };
   }
 
-handleClick(i) {
+  handleClick(i) {
   //.slice makes a shallow clone of an array
     const history = this.state.history.slice(0,this.state.stepNumber + 1); //ensures that if we “go back in time” and then make a new move from that point/we throw away all the “future” history that would now become incorrect 
     const current = history[history.length - 1];
@@ -44,7 +44,7 @@ handleClick(i) {
 // .map() over history in the <Game render method)
 render() {
     const history = this.state.history;
-//since 'X;' is always first, we set xIsNext to true if the number ≈that we’re changing stepNumber to is even
+      //since 'X;' is always first, we set xIsNext to true if the number ≈that we’re changing stepNumber to is even
     const current = history[this.state.stepNumber];//to rendering the currently selected move according to stepNumber
     const winner = calculateWinner(current.squares);
 
@@ -53,9 +53,19 @@ render() {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li key={ move }>  
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
+       
+          <li key={ move }> 
+          
+              <div class="ui animated button" tabindex="0">
+          
+              <div class="visible content"></div> <button onClick={() => this.jumpTo(move)}>{desc}</button> </div>
+              <div class="hidden content">
+              <i class="right arrow icon"></i>
+              </div>
+            
+            </li>
+    
+        
       );
     });
 
