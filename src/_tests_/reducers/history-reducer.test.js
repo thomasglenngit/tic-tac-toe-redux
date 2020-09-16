@@ -1,7 +1,34 @@
+import Square from "../../components/Square";
 import historyReducer from "../../reducers/history-reducer";
 
 
-// describe("toiletFace", () => {
+describe("historyReducer", () => {
+  
+  test("Should return default state if there is no action type passed into the reducer", () => {
+    expect(historyReducer({}, { type: null })).toEqual({});
+  });
+
+  const currentState = { 
+    1: {history: [null, null, null, null, null, null, null, null, null], 
+    stepNumber: 0,
+    xIsNext: true, 
+    key: 1 },
+    
+    2: {history: ['X', null, null, null, null, null, null, null, null], 
+    stepNumber: 0,
+    xIsNext: true, 
+    key: 2 }
+    }
+ 
+  test("Should return the empty key value pair from an empty square", () => {
+    expect(historyReducer({history: squares}, { type: stepNumber}, { xIsNext })).toEqual({[key]:
+      {history:[]}})
+  });
+});
+
+
+
+
 //   const currentState = {
 //     1: {
 //       names: "Ryan & Aimen",
@@ -44,9 +71,7 @@ import historyReducer from "../../reducers/history-reducer";
 //     });
 //   });
 
-//   test("Should return default state if there is no action type passed into the reducer", () => {
-//     expect(toiletFace({}, { type: null })).toEqual({});
-//   });
+
 //   test("Should successfully delete a ticket", () => {
 //     action = {
 //       type: "DELETE_TICKET",

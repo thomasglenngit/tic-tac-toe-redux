@@ -53,13 +53,9 @@ render() {
         'Go to move #' + move :
         'Go to game start';
       return (
-       
           <li key={ move }> 
-      
           <button onClick={() => this.jumpTo(move)}>{desc}</button> 
-
-            </li>
-        
+          </li>
       );
     });
 
@@ -86,11 +82,6 @@ render() {
     );
   }
 }
-
-// ReactDOM.render(
-//   <Game />,
-//   document.getElementById('root')
-// );
 
 //helper fxn() to show when game is won/no more turns 
 function calculateWinner(squares) {
