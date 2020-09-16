@@ -55,16 +55,10 @@ render() {
       return (
        
           <li key={ move }> 
-          
-              <div class="ui animated button" tabindex="0">
-          
-              <div class="visible content"></div> <button onClick={() => this.jumpTo(move)}>{desc}</button> </div>
-              <div class="hidden content">
-              <i class="right arrow icon"></i>
-              </div>
-            
+      
+          <button onClick={() => this.jumpTo(move)}>{desc}</button> 
+
             </li>
-    
         
       );
     });
