@@ -1,7 +1,8 @@
 import React from 'react';
-import React from "react"; //imports React Library
-import ReactDOM from "react-dom"; //" ReactDom instance call to populate the DOM"
-import "./index.css"; //"the styling"
+import Board from './Board.js';
+import Square from './Square';
+// import ReactDOM from "react-dom"; //" ReactDom instance call to populate the DOM"
+import "../index.css"; //"the styling"
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -82,7 +83,29 @@ render() {
   }
 }
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
+// ReactDOM.render(
+//   <Game />,
+//   document.getElementById('root')
+// );
+
+//helper fxn() to show when game is won/no more turns 
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    //if sq(a) (entered to have an 'a' [who isn't nulled] to compare to an incoming 'a' in Game's render return  )
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+}

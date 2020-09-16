@@ -1,6 +1,6 @@
 import React from "react"; //imports React Library
 import ReactDOM from "react-dom"; //" ReactDom instance call to populate the DOM"
-import "./index.css"; //"the styling"
+import "../index.css"; //"the styling"
   //OrderItem
 
 
