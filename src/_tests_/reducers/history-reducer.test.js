@@ -17,7 +17,7 @@ describe("historyReducer", () => {
     xIsNext: true, 
     key: 1 },
     
-    2: {history: ['X', null, null, null, null, null, null, null, null], 
+    2: {history: ['X', "O", null, null, null, null, null, null, null], 
     stepNumber: 0,
     xIsNext: true, 
     key: 2 }
@@ -29,22 +29,27 @@ describe("historyReducer", () => {
       stepNumber: 0,
       xIsNext: true, 
       key: 1 }
+      const historyData2 = 
+      {history: ["X", null, null, null, null, null, null, null, null], 
+      stepNumber: 0,
+      xIsNext: false, 
+      key: 2 }
 
-  test("Should return the empty key value pair from an empty square", () => {
-      const { history,  stepNumber, xIsNext, key } = historyData;
+  test("Should return the instantiation ofa new board", () => {
+      const { history,  stepNumber, xIsNext, key } = historyData2;
       action = {
       type: "ADD_HISTORY",
-      history: [null, null, null, null, null, null, null, null, null], 
+      history: ["X", null, null, null, null, null, null, null, null], 
       stepNumber: 0, 
-      xIsNext: true ,
-      key: 1,
+      xIsNext: false ,
+      key: 2,
   };
   expect(historyReducer({}, action)).toEqual({
     [key]: {
       history: history,
       stepNumber: stepNumber,
       xIsNext: xIsNext,
-      key: 1,
+      key: 2,
     },
   });
 });
