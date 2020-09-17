@@ -1,5 +1,5 @@
 export default (state = {}, action) => {
-  const { history, stepNumber, xIsNext } = action;
+  const { history, stepNumber, xIsNext, key } = action;
 
    switch (action.type) {
     case "ADD_HISTORY":
@@ -8,7 +8,7 @@ export default (state = {}, action) => {
           history: history,
           stepNumber: stepNumber,
           xIsNext: xIsNext,
-          key: key
+          key:key,
             }
       })
       default:

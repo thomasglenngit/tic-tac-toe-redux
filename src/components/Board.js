@@ -3,7 +3,7 @@ import ReactDOM from "react-dom"; //" ReactDom instance call to populate the DOM
 import Square from './Square.js'
 import "../index.css"; //"the styling"
 
-export default class Board extends React.Component {
+class Board extends React.Component {
   renderSquare(i) {
     return (
       <Square
@@ -35,3 +35,5 @@ export default class Board extends React.Component {
     );
   }
 } 
+
+export default Board;
