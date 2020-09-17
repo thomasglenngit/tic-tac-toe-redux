@@ -11,7 +11,13 @@ export default (state = {}, action) => {
           key:key,
             }
       })
+      
+      case 'DELETE_TICKET':
+      const newState = { ...state };
+      delete newState[key];
+      return newState;
       default:
-          return state;  
+        return state;
   }
 };
+      
